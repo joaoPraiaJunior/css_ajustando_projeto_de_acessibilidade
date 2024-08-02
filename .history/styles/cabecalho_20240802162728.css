@@ -13,20 +13,18 @@
 }
 
 .cabecalho__nav--logo {
-  width: 17.2rem;
-  height: 5.6rem;
-  margin-bottom: 1rem;
+  width: 172px;
+  height: 56px;
 }
 
 .cabecalho__nav--lista {
   font-size: 1.5rem;
 }
 
-.cabecalho__nav--lista::before {
+.cabecalho__nav--lista::after {
   content:'';
+  display: block;
   width: 100%;
-  position: absolute;
-  top: -1rem;
   border-top: 1px solid black;
 }
 
@@ -36,13 +34,8 @@
 }
 
 .cabecalho .cabecalho__nav .cabecalho__nav--lista {
-  display: flex;
-  justify-content: center;
+  display: inline-flex;
   list-style: none;
-  position: relative;
-  width: 100%;
-  padding-top: 1rem;
-
 }
 
 .cabecalho .cabecalho__nav .cabecalho__nav--lista a {
