@@ -126,16 +126,16 @@
                 </div>
                 <div class="container__contato--inputs">
                     <label for="nome">Nome:</label>
-                    <input type="text" id="nome" name="nome" placeholder="Digite seu nome completo" required>
+                    <input type="text" id="nome" name="nome" placeholder="Digite seu nome completo">
                     <label for="email">Email</label>
-                    <input type="email" id="email" name="email" placeholder="Digite seu email" required>
+                    <input type="email" id="email" name="email" placeholder="Digite seu email">
                     <label for="telefone">Telefone</label>
-                    <input type="tel" id="telefone" name="telefone" placeholder="(XX) XXXX-XXXX" required>
-                    <fieldset>
-                        <legend class="container__contato--inputs--titulo">Prefere contato por:</legend>
+                    <input type="tel" id="telefone" name="telefone" placeholder="(XX) XXXX-XXXX">
+                    <div>
+                        <p class="container__contato--inputs--titulo">Prefere contato por:</p>
                         <div class="container__contato--inputs--div">
                             <div>
-                                <input id="ligacao" type="radio" name="tipo_contato" value="ligacao" required>
+                                <input id="ligacao" type="radio" name="tipo_contato" value="ligacao">
                                 <label for="ligacao">Ligação</label>
                             </div>
                             <div>
@@ -147,9 +147,9 @@
                                 <label for="email_contato">E-mail</label>
                             </div>
                         </div>
-                    </fieldset>
+                    </div>
                     <label for="mensagem">Mensagem</label>
-                    <textarea type="text" id="mensagem" name="mensagem" placeholder="Escreva sua mensagem" maxlength="500" required></textarea>
+                    <textarea type="text" id="mensagem" name="mensagem" placeholder="Escreva sua mensagem"></textarea>
                 </div>
                 <button type="submit">Enviar</button>
             </form>
