@@ -42,10 +42,9 @@
 
 .container__contato--form .container__contato--form-conteudo-titulo {
     font-family: "Krona One", sans-serif;
-    font-size: 2.6rem;
-    font-weight: 400;
-    color: var(--azul-escuro);
     white-space: nowrap;
+    font-size: 2.6rem;
+    color: var(--azul-escuro);
 }
 
 .container__contato--form-conteudo-texto {
