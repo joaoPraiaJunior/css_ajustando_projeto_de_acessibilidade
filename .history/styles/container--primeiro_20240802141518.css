@@ -24,11 +24,11 @@
 }
 
 .container__primeiro--texto-botao {
-    width: 31.8rem;
-    height: 6.6rem;
+    width: 318px;
+    height: 66px;
     color: white;
     border: none;
-    border-radius: 6.6rem;
+    border-radius: 66px;
     background: var(--azul-botao);
     font-size: 2.4rem;
     font-family: 'Montserrat';
@@ -42,8 +42,8 @@
 }
 
 .container__primeiro--imagem {
-    width: 29.7rem;
-    height: 38.4rem;
+    width: 297px;
+    height: 384px;
     align-self: end;
 }
 
@@ -53,11 +53,11 @@
     .container__primeiro {
         align-items: center;
         text-align: start;
-        padding: 6.4rem 6.0rem;
+        padding: 64px 60px;
     }
 
     .container__primeiro--texto {
-        width: 48.6rem;
+        width: 486px;
     }
 
     .container__primeiro--texto h1 {
@@ -65,12 +65,12 @@
     }
 
     .container__primeiro--texto-botao {
-        width: 28.0rem;
+        width: 280px;
     }
 
     .container__primeiro--imagem {
-        width: 43.2rem;
-        height: 55.8rem;
+        width: 432px;
+        height: 558px;
         align-self: center;
     }
 }
@@ -81,10 +81,10 @@
 
     .container__primeiro {
         flex-direction: row;
-        padding: 0 22.0rem 8.0rem 22.0rem;
+        padding: 0 220px 80px 220px;
     }
 
     .container__primeiro--imagem {
-        width: 47.4rem;
+        width: 474px;
     }
 }
