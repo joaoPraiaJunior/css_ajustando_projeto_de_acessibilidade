@@ -1,0 +1,115 @@
+.container__duvidas {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  gap: 2rem;
+}
+
+.container__duvidas .container__duvidas--titulo {
+  color: var(--azul-escuro);
+  font-size: 2.6rem;
+  font-family: Krona One;
+  font-weight: 400;
+}
+
+/* 
+ * Accordion 
+ */
+.acordeon {
+  width: 100%;
+  margin-bottom: 4rem;
+  max-width: 119.2rem;
+}
+
+/* Estilo base do acordeão */
+.acordeon__item {
+  background-color: var(--azul-escuro);
+  color: white;
+  cursor: pointer;
+  border: none;
+  padding: 1.6rem;
+  transition: background-color 0.5s ease;
+  border-radius: 3.2rem;
+  margin-bottom: 0.8rem;
+  overflow: hidden;
+}
+
+.acordeon__botao {
+  font-size: 1.5rem;
+  line-height: 2.2rem;
+  width: 100%;
+  text-align: left;
+  font-weight: 700;
+  background: transparent;
+  color: #fff;
+  align-items: center;
+  border: none;
+  justify-content: space-between;
+  display: flex;
+  cursor: pointer;
+}
+
+.acordeon__item:hover {
+  background: var(--lilas-escuro);
+  transition: 0.5s;
+}
+
+/* Estilo do conteúdo do acordeão */
+.acordeon__conteudo {
+  max-height: 0;
+  overflow: hidden;
+  position: relative;
+  color: #000;
+  left: -1.6rem;
+  bottom: -1.6rem;
+  width: 112%;
+  background-color: var(--cinza-claro);
+  padding: 0 1.8rem;
+  transition: max-height 0.5s ease;
+  border-bottom-left-radius: 3.2rem;
+  border-bottom-right-radius: 3.2rem;
+  z-index: 0;
+}
+
+.acordeon__conteudo div {
+  padding: 1.6rem;
+  width: 95%;
+}
+
+.acordeon__conteudo div {
+  font-size: 1.5rem;
+}
+
+/* Estilo para a transição do ícone */
+.icone {
+  transition: transform 0.5s ease;
+  cursor: pointer;
+  font-size: 3.2rem;
+  outline: none;
+}
+
+/* seta acordeão */
+.acordeon__botao[aria-expanded="true"] .icone {
+  transform: rotate(180deg);
+}
+
+.acordeon__conteudo.expandido {
+  max-height: 25rem;
+}
+
+@media (min-width: 768px) {
+  .container__duvidas {
+    padding: 0 6rem 0 6rem;
+    gap: 2.4rem;
+  }
+}
+
+@media (min-width: 1440px) {
+  .container__duvidas {
+    padding: 0 12rem 0 12rem;
+    gap: 2.4rem;
+  }
+}

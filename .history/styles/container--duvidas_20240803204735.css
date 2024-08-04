@@ -1,0 +1,14 @@
+.container__duvidas {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.0rem;
+}
+
+.container__duvidas .container__duvidas--titulo {
+    color: var(--azul-escuro);
+    font-size: 3.1rem;
+    font-family: Krona One;
+    font-weight: 400;
+}

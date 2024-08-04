@@ -1,0 +1,109 @@
+.container__duvidas {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-left: 6rem;
+  padding-right: 6rem;
+  gap: 5.0rem;
+}
+
+.container__duvidas .container__duvidas--titulo {
+    color: var(--azul-escuro);
+    font-size: 2.6rem;
+    font-family: Krona One;
+    font-weight: 400;
+}
+
+/* 
+ * Accordion 
+ */
+ .acordeon {
+    width: 100%;
+    margin-bottom: 4.0rem;
+  }
+  
+  /* Estilo base do acordeão */
+  .acordeon__item {
+    background-color: var(--azul-escuro);
+    color: white;
+    cursor: pointer;
+    border: none;
+    padding: 16px;
+    transition: background-color 0.5s ease;
+    border-radius: 32px;
+    margin-bottom: 8px;
+    overflow: hidden;
+  }
+  
+  .acordeon__botao {
+    font-size: 15px;
+    line-height: 22px;
+    width: 100%;
+    text-align: left;
+    font-weight: 700;
+    background: transparent;
+    color: #fff;
+    align-items: center;
+    border: none;
+    justify-content: space-between;
+    display: flex;
+    cursor: pointer;
+  }
+  
+  
+  .acordeon__item:hover {
+    background: var(--lilas-escuro);
+    transition: 0.5s;
+  }
+  
+  /* Estilo do conteúdo do acordeão */
+  .acordeon__conteudo {
+    max-height: 0;
+    overflow: hidden;
+    position: relative;
+    color: #000;
+    left: -16px;
+    bottom: -16px;
+    width: 112%;
+    background-color: var(--cinza-claro);
+    padding: 0 18px;
+    transition: max-height 0.5s ease;
+    border-bottom-left-radius: 32px;
+    border-bottom-right-radius: 32px;
+    z-index: 0;
+  }
+  
+  .acordeon__conteudo div {
+    padding: 16px;
+    width: 95%;
+  }
+  
+  .acordeon__conteudo div {
+    font-size: 1.5rem;
+  }
+  
+  /* Estilo para a transição do ícone */
+  .icone {
+    transition: transform 0.5s ease;
+    cursor: pointer;
+    font-size: 3.2rem;
+    outline: none;
+  }
+  
+  /* seta acordeão */
+  .acordeon__botao[aria-expanded="true"] .icone {
+    transform: rotate(180deg);
+  }
+  
+  .acordeon__conteudo.expandido {
+    max-height: 250px;
+  }
+
+  @media(min-width: 768px) {
+    .container__duvidas {
+        padding: 0 35.5rem 0 35.5rem;
+        row-gap: 2.4rem;
+      }
+
+  }
