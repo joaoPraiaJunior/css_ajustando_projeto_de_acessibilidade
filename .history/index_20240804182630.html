@@ -20,6 +20,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Krona+One&family=Montserrat:wght@400;600&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <script type="module" defer src="./js/script.js"></script>
     <title>Calmaria Spa</title>
 </head>
 
@@ -37,8 +38,8 @@
                 <li class="cabecalho__lista-item" data-js="item-menu">
                     <!-- aria-haspopup="true" indica que o item do menu possui um submenu -->
                     <!-- aria-expanded="false" indica que o submenu não está visível -->
-                    <a href="#" aria-haspopup="true" aria-expanded="false" data-js="popup">Nosso Espaço</a>
-                    <span class="material-symbols-outlined icone" aria-hidden="true" data-js="icone">stat_minus_1</span>
+                    <a href="#" aria-haspopup="true" aria-expanded="false">Nosso Espaço</a>
+                    <span class="material-symbols-outlined icone" aria-hidden="true">stat_minus_1</span>
                     <ul class="submenu"  data-js="submenu">
                         <li>
                             <a href="/quem-somos.html">Nossa história</a>
@@ -141,7 +142,7 @@
                         <p class="newsletter__infos">
                             Reserve seu horário, tire dúvidas e proponha sugestões!
                         </p>
-                        <button class="newsletter__botao" aria-label="Clique para Entrar em contato" data-js="botao-abrir-modal">
+                        <button class="newsletter__botao" aria-label="Clique para Entrar em contato">
                             Entrar em contato
                         </button>
                     </div>
@@ -188,11 +189,11 @@
                     </div>
                     <button type="submit">Enviar</button>
                 </form>
-            </div>          
+            </div>
         </section>
 
         <section class="container__duvidas">
-            <h2 class="container__duvidas--titulo">Algumas dúvidas</h2>
+            <h4 class="container__duvidas--titulo">Algumas dúvidas</h4>
             <div class="acordeon">
                 <div class="acordeon__item" id="item1">
                     <button class="acordeon__botao" aria-expanded="false">
@@ -261,7 +262,6 @@
             <small>Desenvolvido por Alura. Projeto fictício sem fins comerciais.</small>
         </address>
     </footer>
-    <script type="module" src="./js/script.js"></script>
 </body>
 
 </html>
