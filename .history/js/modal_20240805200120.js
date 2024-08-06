@@ -8,6 +8,7 @@ function modal() {
     const tipoModal = document.querySelectorAll(elementos.tipoModal);
 
     tipoModal.forEach(modal => {
+        debugger;
         botaoModal.forEach(botao => {
             botao.addEventListener('click', () => {
                 alternaModal(botao, modal);

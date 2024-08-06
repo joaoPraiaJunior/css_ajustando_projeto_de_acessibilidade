@@ -13,7 +13,7 @@ function modal() {
                 alternaModal(botao, modal);
             });
 
-            document.addEventListener('keydown', (evento) => {
+            botao.addEventListener('keydown', (evento) => {
                 const tecla = evento.key;
                 if (tecla === 'Escape') {
                     modal.style.display = 'none';

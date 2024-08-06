@@ -10,15 +10,8 @@ function modal() {
     tipoModal.forEach(modal => {
         botaoModal.forEach(botao => {
             botao.addEventListener('click', () => {
-                alternaModal(botao, modal);
-            });
 
-            document.addEventListener('keydown', (evento) => {
-                const tecla = evento.key;
-                if (tecla === 'Escape') {
-                    modal.style.display = 'none';
-                    document.body.style.overflow = 'auto';
-                }
+                alternaModal(botao, modal);
             });
         });
     });
@@ -28,10 +21,8 @@ function modal() {
         const tipoModalAtual = modal.dataset.tipoModal;
         if (botaoClicado === tipoModalAtual) {
             modal.style.display = 'flex';
-            document.body.style.overflow = 'hidden';
         } else {
             modal.style.display = 'none';
-            document.body.style.overflow = 'auto';
         }
     }
 }

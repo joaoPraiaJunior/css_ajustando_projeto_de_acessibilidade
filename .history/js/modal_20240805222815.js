@@ -28,7 +28,6 @@ function modal() {
         const tipoModalAtual = modal.dataset.tipoModal;
         if (botaoClicado === tipoModalAtual) {
             modal.style.display = 'flex';
-            document.body.style.overflow = 'hidden';
         } else {
             modal.style.display = 'none';
             document.body.style.overflow = 'auto';

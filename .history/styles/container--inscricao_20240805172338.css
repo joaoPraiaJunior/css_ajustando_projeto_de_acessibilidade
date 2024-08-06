@@ -68,12 +68,65 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  cursor: pointer;
-  transition: background-color 0.5s ease-in-out;
 }
 
-.container__incricao--form-input button:hover {
-  background: var(--lilas-escuro);
+/* Modal de formulário enviado */
+
+.modal-enviado {
+  background-color: rgb(93, 88, 108, 0.8);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: none;
+}
+
+.conteudo-modal-enviado {
+  margin: 0 auto;
+  margin-top: 10%;
+  max-width: 800px;
+  background: linear-gradient(180deg, #e8f5c8 0%, rgb(255, 255, 255) 96%);
+  padding: 40px 48px;
+  border-radius: 8px;
+}
+
+.cabecalho-modal-enviado {
+  padding: 1px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.cabecalho-modal-enviado .cabecalho-titulo-modal-enviado {
+  font-family: "Krona One", sans-serif;
+  font-size: 26px;
+  color: var(--azul-escuro);
+  margin: 10px 0;
+}
+
+.cabecalho-icone-modal-enviado {
+  width: 68x;
+  margin: 20px 0;
+}
+
+.btn-fechar {
+  font-family: "Montserrat", sans-serif;
+  width: 40%;
+  border: none;
+  border-radius: 40px;
+  height: 45px;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  background: var(--azul-escuro);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-fechar:hover {
+  background: var(--lilas-claro);
+  transition: 0.5s;
 }
 
 @media screen and (min-width: 768px) {
@@ -104,7 +157,7 @@
   }
 
   .container__incricao--form-input {
-    width: 55.8rem;
+    width: 36.8rem;
   }
 
   .container__incricao--tablet {

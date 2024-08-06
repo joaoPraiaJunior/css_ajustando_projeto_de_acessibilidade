@@ -18,6 +18,7 @@ function modal() {
                 if (tecla === 'Escape') {
                     modal.style.display = 'none';
                     document.body.style.overflow = 'auto';
+                    botao.focus();
                 }
             });
         });
@@ -32,6 +33,7 @@ function modal() {
         } else {
             modal.style.display = 'none';
             document.body.style.overflow = 'auto';
+            botao.focus();
         }
     }
 }

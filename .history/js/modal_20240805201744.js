@@ -2,10 +2,12 @@ function modal() {
     const elementos = {
         botaoModal: '[data-botao-modal]',
         tipoModal: '[data-tipo-modal]',
+        overlayModal: '[data-js="overlay-modal"]',
     }
 
     const botaoModal = document.querySelectorAll(elementos.botaoModal);
     const tipoModal = document.querySelectorAll(elementos.tipoModal);
+    const overlayModal = document.querySelectorAll(elementos.overlayModal);
 
     tipoModal.forEach(modal => {
         botaoModal.forEach(botao => {
@@ -30,6 +32,7 @@ function modal() {
             modal.style.display = 'flex';
             document.body.style.overflow = 'hidden';
         } else {
+            debugger;
             modal.style.display = 'none';
             document.body.style.overflow = 'auto';
         }

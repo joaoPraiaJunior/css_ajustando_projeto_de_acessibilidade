@@ -32,6 +32,8 @@ function modal() {
         } else {
             modal.style.display = 'none';
             document.body.style.overflow = 'auto';
+            console.log(botao)
+            botao.focus();
         }
     }
 }

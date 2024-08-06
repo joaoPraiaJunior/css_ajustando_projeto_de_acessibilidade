@@ -9,11 +9,12 @@ function modal() {
 
     tipoModal.forEach(modal => {
         botaoModal.forEach(botao => {
-            botao.addEventListener('click', () => {
+            botao.addEventListener('click', (evento) => {
+                evento.stopPropagation();
                 alternaModal(botao, modal);
             });
 
-            document.addEventListener('keydown', (evento) => {
+            botao.addEventListener('keydown', (evento) => {
                 const tecla = evento.key;
                 if (tecla === 'Escape') {
                     modal.style.display = 'none';

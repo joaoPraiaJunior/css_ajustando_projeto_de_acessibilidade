@@ -69,10 +69,9 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  transition: background-color 0.5s ease-in-out;
 }
 
-.container__incricao--form-input button:hover {
+..container__incricao--form-input button:hover {
   background: var(--lilas-escuro);
 }
 

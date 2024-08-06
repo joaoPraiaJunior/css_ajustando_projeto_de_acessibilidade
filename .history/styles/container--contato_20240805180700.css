@@ -28,26 +28,23 @@
   display: none;
   justify-content: center;
   align-items: center;
-}
-
-.modal, .modal__overlay {
+  background-color: var(--modal-overlay);
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
+  z-index: 999;
 }
 
 .modal__container {
   display: grid;
   justify-items: center;
-  row-gap: 3.0rem;
+  gap: 3.0rem;
   background: var(--gradiente);
   max-width: 80.0rem;
   border-radius: 0.8rem;
   padding: 3rem 2.4rem;
-  position: relative;
-  z-index: 3;
 }
 
 .container__contato--form .modal__botao--fechar {
@@ -71,15 +68,6 @@
   padding: 1rem 2rem;
   transition: background-color 0.5s ease-in-out;
   cursor: pointer;
-}
-
-.modal__botao:hover {
-  background-color: var(--lilas-escuro);
-}
-
-.modal__overlay {
-  background-color: var(--modal-overlay);
-  z-index: 2;
 }
 
 /* Formulário */
@@ -295,6 +283,7 @@
   }
 
   .modal__container {
+    margin-top: 3rem;
     padding: 4rem 4.8rem;
   }
 }

@@ -9,9 +9,9 @@ function modal() {
 
     tipoModal.forEach(modal => {
         botaoModal.forEach(botao => {
-            botao.addEventListener('click', () => {
+            botao.addEventListener('click', (evento) => {
                 alternaModal(botao, modal);
-            });
+            }, true);
 
             document.addEventListener('keydown', (evento) => {
                 const tecla = evento.key;
@@ -30,6 +30,7 @@ function modal() {
             modal.style.display = 'flex';
             document.body.style.overflow = 'hidden';
         } else {
+            debugger;
             modal.style.display = 'none';
             document.body.style.overflow = 'auto';
         }

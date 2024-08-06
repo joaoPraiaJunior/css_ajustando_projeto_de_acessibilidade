@@ -9,9 +9,9 @@ function modal() {
 
     tipoModal.forEach(modal => {
         botaoModal.forEach(botao => {
-            botao.addEventListener('click', () => {
+            botao.addEventListener('click', (evento) => {
                 alternaModal(botao, modal);
-            });
+            }, true);
 
             document.addEventListener('keydown', (evento) => {
                 const tecla = evento.key;
@@ -26,6 +26,7 @@ function modal() {
     function alternaModal(botao, modal) {
         const botaoClicado = botao.dataset.botaoModal;
         const tipoModalAtual = modal.dataset.tipoModal;
+        debugger;
         if (botaoClicado === tipoModalAtual) {
             modal.style.display = 'flex';
             document.body.style.overflow = 'hidden';

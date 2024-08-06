@@ -1,6 +1,6 @@
 function modal() {
     const elementos = {
-        botaoModal: '[data-botao-modal]',
+        botaoModal: '[data-modal]',
         tipoModal: '[data-tipo-modal]',
     }
 
@@ -10,28 +10,17 @@ function modal() {
     tipoModal.forEach(modal => {
         botaoModal.forEach(botao => {
             botao.addEventListener('click', () => {
-                alternaModal(botao, modal);
-            });
 
-            document.addEventListener('keydown', (evento) => {
-                const tecla = evento.key;
-                if (tecla === 'Escape') {
-                    modal.style.display = 'none';
-                    document.body.style.overflow = 'auto';
-                }
+                alternaModal(botao, modal);
             });
         });
     });
 
     function alternaModal(botao, modal) {
-        const botaoClicado = botao.dataset.botaoModal;
+        const botaoClicado = botao.dataset.modal;
         const tipoModalAtual = modal.dataset.tipoModal;
         if (botaoClicado === tipoModalAtual) {
             modal.style.display = 'flex';
-            document.body.style.overflow = 'hidden';
-        } else {
-            modal.style.display = 'none';
-            document.body.style.overflow = 'auto';
         }
     }
 }

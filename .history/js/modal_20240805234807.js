@@ -32,6 +32,7 @@ function modal() {
         } else {
             modal.style.display = 'none';
             document.body.style.overflow = 'auto';
+            botao.focus();
         }
     }
 }

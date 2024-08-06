@@ -12,14 +12,6 @@ function modal() {
             botao.addEventListener('click', () => {
                 alternaModal(botao, modal);
             });
-
-            document.addEventListener('keydown', (evento) => {
-                const tecla = evento.key;
-                if (tecla === 'Escape') {
-                    modal.style.display = 'none';
-                    document.body.style.overflow = 'auto';
-                }
-            });
         });
     });
 
@@ -28,10 +20,8 @@ function modal() {
         const tipoModalAtual = modal.dataset.tipoModal;
         if (botaoClicado === tipoModalAtual) {
             modal.style.display = 'flex';
-            document.body.style.overflow = 'hidden';
         } else {
             modal.style.display = 'none';
-            document.body.style.overflow = 'auto';
         }
     }
 }

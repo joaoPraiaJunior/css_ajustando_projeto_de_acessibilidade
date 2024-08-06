@@ -28,26 +28,20 @@
   display: none;
   justify-content: center;
   align-items: center;
-}
-
-.modal, .modal__overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
 }
 
 .modal__container {
-  display: grid;
-  justify-items: center;
-  row-gap: 3.0rem;
+  position: absolute;
+  top: 0;
+  z-index: 3;
   background: var(--gradiente);
   max-width: 80.0rem;
   border-radius: 0.8rem;
   padding: 3rem 2.4rem;
-  position: relative;
-  z-index: 3;
 }
 
 .container__contato--form .modal__botao--fechar {
@@ -79,7 +73,13 @@
 
 .modal__overlay {
   background-color: var(--modal-overlay);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
   z-index: 2;
+  overflow: hidden;
 }
 
 /* Formulário */

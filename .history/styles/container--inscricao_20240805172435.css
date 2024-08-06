@@ -68,13 +68,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  cursor: pointer;
-  transition: background-color 0.5s ease-in-out;
 }
 
-.container__incricao--form-input button:hover {
-  background: var(--lilas-escuro);
-}
+
 
 @media screen and (min-width: 768px) {
   /* Seção inscrição */
@@ -104,7 +100,7 @@
   }
 
   .container__incricao--form-input {
-    width: 55.8rem;
+    width: 36.8rem;
   }
 
   .container__incricao--tablet {

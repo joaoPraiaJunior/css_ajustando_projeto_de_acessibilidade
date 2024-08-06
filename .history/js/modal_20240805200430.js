@@ -9,7 +9,9 @@ function modal() {
 
     tipoModal.forEach(modal => {
         botaoModal.forEach(botao => {
-            botao.addEventListener('click', () => {
+            botao.addEventListener('click', (evento) => {
+                debugger;
+                console.log(evento.target)
                 alternaModal(botao, modal);
             });
 
@@ -24,6 +26,7 @@ function modal() {
     });
 
     function alternaModal(botao, modal) {
+        debugger
         const botaoClicado = botao.dataset.botaoModal;
         const tipoModalAtual = modal.dataset.tipoModal;
         if (botaoClicado === tipoModalAtual) {

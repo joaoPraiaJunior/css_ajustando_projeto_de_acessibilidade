@@ -30,6 +30,7 @@ function modal() {
             modal.style.display = 'flex';
             document.body.style.overflow = 'hidden';
         } else {
+            debugger;
             modal.style.display = 'none';
             document.body.style.overflow = 'auto';
         }

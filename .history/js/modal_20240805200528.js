@@ -9,7 +9,8 @@ function modal() {
 
     tipoModal.forEach(modal => {
         botaoModal.forEach(botao => {
-            botao.addEventListener('click', () => {
+            botao.addEventListener('click', (evento) => {
+                console.log(evento.target);
                 alternaModal(botao, modal);
             });
 

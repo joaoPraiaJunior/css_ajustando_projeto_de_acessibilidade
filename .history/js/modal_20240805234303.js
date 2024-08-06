@@ -29,9 +29,11 @@ function modal() {
         if (botaoClicado === tipoModalAtual) {
             modal.style.display = 'flex';
             document.body.style.overflow = 'hidden';
+            modal.querySelector('h2').focus();
         } else {
             modal.style.display = 'none';
             document.body.style.overflow = 'auto';
+            botao.focus();
         }
     }
 }

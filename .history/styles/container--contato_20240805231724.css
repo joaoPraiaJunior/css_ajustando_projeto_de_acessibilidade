@@ -39,9 +39,6 @@
 }
 
 .modal__container {
-  display: grid;
-  justify-items: center;
-  row-gap: 3.0rem;
   background: var(--gradiente);
   max-width: 80.0rem;
   border-radius: 0.8rem;

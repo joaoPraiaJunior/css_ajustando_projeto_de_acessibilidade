@@ -2,6 +2,7 @@ function modal() {
     const elementos = {
         botaoModal: '[data-botao-modal]',
         tipoModal: '[data-tipo-modal]',
+        overlayModal: '[data-js="overlay-modal"]',
     }
 
     const botaoModal = document.querySelectorAll(elementos.botaoModal);
@@ -13,7 +14,7 @@ function modal() {
                 alternaModal(botao, modal);
             });
 
-            document.addEventListener('keydown', (evento) => {
+            botao.addEventListener('keydown', (evento) => {
                 const tecla = evento.key;
                 if (tecla === 'Escape') {
                     modal.style.display = 'none';

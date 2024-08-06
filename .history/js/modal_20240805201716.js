@@ -2,6 +2,7 @@ function modal() {
     const elementos = {
         botaoModal: '[data-botao-modal]',
         tipoModal: '[data-tipo-modal]',
+        overlayModal: '[data-js="overlay-modal"]',
     }
 
     const botaoModal = document.querySelectorAll(elementos.botaoModal);
@@ -30,6 +31,7 @@ function modal() {
             modal.style.display = 'flex';
             document.body.style.overflow = 'hidden';
         } else {
+            debugger;
             modal.style.display = 'none';
             document.body.style.overflow = 'auto';
         }
