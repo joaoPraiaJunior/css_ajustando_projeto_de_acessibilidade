@@ -67,12 +67,18 @@
   transition: max-height 0.5s ease;
   border-bottom-left-radius: 3.2rem;
   border-bottom-right-radius: 3.2rem;
+  z-index: 0;
+}
+
+.acordeao__conteudo {
+  background-color: #ddd;
+  font-size: 1.6rem;
+  padding: 1.6rem;
+  width: 100%;
 }
 
 .acordeao__conteudo div {
-  font-size: 1.6rem;
-  padding: 2rem 0;
-  width: 100%;
+  font-size: 1.5rem;
 }
 
 /* Estilo para a transição do ícone */

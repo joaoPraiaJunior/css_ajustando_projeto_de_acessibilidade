@@ -70,9 +70,12 @@
 }
 
 .acordeao__conteudo div {
-  font-size: 1.6rem;
-  padding: 2rem 0;
-  width: 100%;
+  padding: 1.6rem;
+  width: 95%;
+}
+
+.acordeao__conteudo div {
+  font-size: 1.5rem;
 }
 
 /* Estilo para a transição do ícone */

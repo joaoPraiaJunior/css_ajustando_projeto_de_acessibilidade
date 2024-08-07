@@ -59,20 +59,16 @@
 
 /* Estilo do conteúdo do acordeão */
 .acordeao__conteudo {
+  font-size: 1.6rem;
+  width: 100%;
   max-height: 0;
   overflow: hidden;
   color: #000;
   background-color: var(--cinza-claro);
-  padding: 0 1.8rem;
   transition: max-height 0.5s ease;
   border-bottom-left-radius: 3.2rem;
   border-bottom-right-radius: 3.2rem;
-}
-
-.acordeao__conteudo div {
-  font-size: 1.6rem;
-  padding: 2rem 0;
-  width: 100%;
+  padding: 2rem;
 }
 
 /* Estilo para a transição do ícone */
