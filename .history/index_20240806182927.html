@@ -115,7 +115,7 @@
             <img class="container__incricao--mobile" src="./assets/mandala-superior-mobile.svg" alt>
             <img class="container__incricao--tablet" src="./assets/mandala-esquerda-tablet.svg" alt>
             <div class="container__incricao--div">
-                <h2 class="container__incricao--form-titulo">Inscreva-se para ganhar descontos!</h2>
+                <h4 class="container__incricao--form-titulo">Inscreva-se para ganhar descontos!</h4>
                 <p class="container__incricao--form-texto">Cadastre-se em nossa newsletter para receber descontos e
                     novidades sobre nossos serviços.</p>
                 <div class="container__incricao--form-input">
@@ -135,7 +135,7 @@
                     <h2 id="cabecalho-titulo-modal-enviado" class="modal__titulo" data-titulo-modal tabindex="0">
                         Você foi inscrito com sucesso!
                     </h2>
-                    <img class="cabecalho-icone-modal-enviado" src="./assets/icon-enviado.png" alt>
+                    <img class="cabecalho-icone-modal-enviado" src="./assets/icon-enviado.png" alt="" />
                     <!-- Botão para fechar a janela modal 'ver-modal-inscrito -->
                     <button class="modal__botao" tabindex="0" aria-label="Fechar formulário enviado" data-js="fechar-modal">
                         Fechar
@@ -166,10 +166,10 @@
 
         <section id="modal" class="modal" data-tipo-modal="formulario" role="dialog" aria-labelledby="titulo-modal">
             <div class="modal__container" data-js="conteudo-modal">
-                <form action="#" method="post" class="container__contato--form">
+                <form action="#" method="post" class="container__contato--form" tabindex="0">
                     <div class="container__contato--form-conteudo">
-                        <h2 id="titulo-modal" class="container__contato--form-conteudo-titulo" tabindex="0" data-titulo-modal>Formulário de contato</h2>
-                        <button type="button" class="modal__botao--fechar" aria-label="fechar formulário"  data-js="fechar-modal">
+                        <h2 id="titulo-modal" class="container__contato--form-conteudo-titulo" data-titulo-modal>Preencha seus dados:</h2>
+                        <button type="button" class="modal__botao--fechar" aria-label="Botão para fechar o formulário" data-js="fechar-modal">
                             <span aria-hidden="true">×</span>
                         </button>
                         <p class="container__contato--form-conteudo-texto">Quer marcar horário, enviar críticas ou sugestões? Preencha os campos abaixo e deixe sua mensagem, que retornaremos em até 12h!</p>
@@ -183,7 +183,7 @@
                         <input type="tel" id="telefone" name="telefone" placeholder="(XX) XXXX-XXXX" required>
                         <label for="mensagem">Mensagem:</label>
                         <textarea id="mensagem" name="mensagem" placeholder="Escreva sua mensagem" maxlength="500" required></textarea>
-                        <fieldset>
+                        <fieldset aria-labelledby="titulo-contato">
                             <legend class="container__contato--inputs--titulo">Prefere contato por:</legend>
                             <div class="container__contato--inputs--div">
                                 <div>

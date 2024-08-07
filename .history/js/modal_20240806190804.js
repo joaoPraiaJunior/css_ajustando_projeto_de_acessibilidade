@@ -53,7 +53,7 @@ function modal() {
 
     function focoSomenteNoModal(modal) {
         const containerDoModal = modal.querySelector(elementos.conteudoModal);
-        const elementosDoModal = containerDoModal.getElementsByTagName('*');
+        const elementosDoModal = containerDoModal.querySelectorAll('*');
         const primeiroElementoFocado = [...elementosDoModal].find(elemento => elemento.hasAttribute(elementos.tituloDoModal));
         const ultimoElementoFocado = elementosDoModal[elementosDoModal.length - 1];
 
@@ -61,13 +61,11 @@ function modal() {
             const tecla = evento.key;
             if (tecla === 'Tab') {
                 if (evento.shiftKey) {
-                    // Se o shift+tab estiver pressionado e o foco estiver no primeiro llemento o foco vai para o último elemento
                     if (document.activeElement === primeiroElementoFocado) {
                         ultimoElementoFocado.focus();
                         evento.preventDefault();
                     }
                 } else {
-                    // Se o tab estiver pressionado e o foco estiver no último elemento o foco vai para o primeiro elemento
                     if (document.activeElement === ultimoElementoFocado) {
                         primeiroElementoFocado.focus();
                         evento.preventDefault();
