@@ -38,6 +38,7 @@ function modal() {
             desativarModal(modal, ultimoBotaoAtivo);
             focoSomenteNoModal(modal);
         }
+
     }
 
     function desativarModal(modal, ultimoBotaoAtivo) {
@@ -61,13 +62,11 @@ function modal() {
             const tecla = evento.key;
             if (tecla === 'Tab') {
                 if (evento.shiftKey) {
-                    // Se o shift+tab estiver pressionado e o foco estiver no primeiro llemento o foco vai para o último elemento
                     if (document.activeElement === primeiroElementoFocado) {
                         ultimoElementoFocado.focus();
                         evento.preventDefault();
                     }
                 } else {
-                    // Se o tab estiver pressionado e o foco estiver no último elemento o foco vai para o primeiro elemento
                     if (document.activeElement === ultimoElementoFocado) {
                         primeiroElementoFocado.focus();
                         evento.preventDefault();
