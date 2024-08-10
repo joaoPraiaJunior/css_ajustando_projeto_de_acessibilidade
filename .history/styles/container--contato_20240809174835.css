@@ -124,7 +124,7 @@
 
 .container__contato--form .container__contato--inputs {
   display: grid;
-  gap: 1.8rem;
+  gap: 1.2rem;
 }
 
 .container__contato--form .container__contato--inputs,
@@ -190,6 +190,8 @@
   display: inline-block;
   font-size: 1.3rem;
   font-weight: 600;
+  text-align: left;
+  width: 70%;
   color: var(--error);
   padding-top: 0.5rem;
 }
@@ -309,10 +311,6 @@
   .container__contato .container__contato--form {
     padding: 3.2rem 4.8rem;
     margin: 0 1.6rem;
-  }
-
-  .container__contato--form {
-    row-gap: 2.4rem;
   }
 
   .container__contato--form-conteudo {

@@ -7,7 +7,7 @@ function modal() {
         tituloDoModal: 'data-titulo-modal',
         mensagemDeErro: '[data-js="mensagem-de-erro"]',
         formulario: '[data-tipo-formulario]',
-        mensagemModal: 'data-mensagem-modal',
+        mensagemModal: '[data-mensagem-modal]',
     }
 
     const abrirModal = document.querySelectorAll(elementos.abrirModal);
@@ -98,9 +98,10 @@ function modal() {
 
     function mensagemDeEnvioParaUsuario(tituloDoModal) {
         const atributoDaMensagem = tituloDoModal.hasAttribute(elementos.mensagemModal);
+
         if (atributoDaMensagem) {
             document.addEventListener('formularioEnviado', (evento) => {
-                tituloDoModal.textContent = `O formulário de ${evento.detail.nome} foi enviado!`;
+                tituloDoModal.textContext = `O formulário de ${evento.detail.nome} foi enviado!`;
             });
         }
 

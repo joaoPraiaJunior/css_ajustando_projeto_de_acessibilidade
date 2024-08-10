@@ -12,7 +12,6 @@ function formulario() {
 
     formularios.forEach(formulario => {
         pegarCamposDoFromulario(formulario);
-        enviarFormulario(formulario);
     });
 
     function pegarCamposDoFromulario(formulario) {
@@ -24,7 +23,7 @@ function formulario() {
 
     }
 
-    function validaCampo(campo, evento) {
+    function validaCampo(campo, evento, formulario) {
         let mensagemDeErroCustomizada = '';
         campo.setCustomValidity('');
 
@@ -56,47 +55,37 @@ function formulario() {
             elementoMensagemDeErro.removeAttribute('tabindex');
         }
 
+        enviarFormulario(formulario);
     }
 
     function enviarFormulario(formulario) {
+        const camposDoFormulario = formulario.querySelectorAll(elementos.camposDoFormulario);
         formulario.addEventListener('submit', (evento) => {
             evento.preventDefault();
-            if (formulario.checkValidity()) {
-                pegarDadosDoFormulario(formulario);
-                despachaMensagemDeEnvio(formulario);
-                formulario.reset();
+            if(formulario.checkValidity()) {
+                pegarDadosDoFormulario(formulario, camposDoFormulario);
+                formulario.submit();
             }
         });
+
     }
 
-    function pegarDadosDoFormulario(formulario) {
-        const camposDoFormulario = formulario.querySelectorAll(elementos.camposDoFormulario);
-        const dadosDeUsuarios = JSON.parse(localStorage.getItem(`${formulario.dataset.tipoFormulario}`)) || [];
+    function pegarDadosDoFormulario(formulario, camposDoFormulario) {
+        const dadosDeUsuarios  = JSON.parse(localStorage.getItem(`${formulario.dataset.tipoFormulario}`)) || [];
         const dadosDoFormulario = new Object();
 
         camposDoFormulario.forEach(campo => {
             dadosDoFormulario[campo.name] = campo.value;
         });
 
-        console.log(dadosDoFormulario);
-
         dadosDeUsuarios.push(dadosDoFormulario);
 
         localStorage.setItem(`${formulario.dataset.tipoFormulario}`, JSON.stringify(dadosDeUsuarios));
     }
 
-    function despachaMensagemDeEnvio(formulario) {
-        const tipoDeFormulario = formulario.dataset.tipoFormulario;
-        const eventoDoFormulario = new CustomEvent('formularioEnviado', {
-            detail: {
-                nome: tipoDeFormulario
-            }
-
-        });
-
-        document.dispatchEvent(eventoDoFormulario);
-    }
-
 }
+
+
+
 
 export default formulario;

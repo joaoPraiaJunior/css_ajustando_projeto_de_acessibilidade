@@ -7,7 +7,7 @@ function modal() {
         tituloDoModal: 'data-titulo-modal',
         mensagemDeErro: '[data-js="mensagem-de-erro"]',
         formulario: '[data-tipo-formulario]',
-        mensagemModal: 'data-mensagem-modal',
+        mensagemModal: '[data-mensagem-modal]',
     }
 
     const abrirModal = document.querySelectorAll(elementos.abrirModal);

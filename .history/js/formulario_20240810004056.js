@@ -64,7 +64,6 @@ function formulario() {
             if (formulario.checkValidity()) {
                 pegarDadosDoFormulario(formulario);
                 despachaMensagemDeEnvio(formulario);
-                formulario.reset();
             }
         });
     }
@@ -95,6 +94,7 @@ function formulario() {
         });
 
         document.dispatchEvent(eventoDoFormulario);
+        console.log(eventoDoFormulario);
     }
 
 }

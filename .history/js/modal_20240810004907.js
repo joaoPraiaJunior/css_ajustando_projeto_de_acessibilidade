@@ -98,6 +98,7 @@ function modal() {
 
     function mensagemDeEnvioParaUsuario(tituloDoModal) {
         const atributoDaMensagem = tituloDoModal.hasAttribute(elementos.mensagemModal);
+        console.log(atributoDaMensagem);
         if (atributoDaMensagem) {
             document.addEventListener('formularioEnviado', (evento) => {
                 tituloDoModal.textContent = `O formulário de ${evento.detail.nome} foi enviado!`;

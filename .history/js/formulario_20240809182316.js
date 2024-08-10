@@ -18,7 +18,7 @@ function formulario() {
     function pegarCamposDoFromulario(formulario) {
         const camposDoFormulario = formulario.querySelectorAll(elementos.camposDoFormulario);
         camposDoFormulario.forEach(campo => {
-            campo.addEventListener('blur', (evento) => validaCampo(campo, evento, formulario));
+            campo.addEventListener('blur', (evento) => validaCampo(campo, evento));
             campo.addEventListener('invalid', (evento) => evento.preventDefault());
         });
 
@@ -55,48 +55,21 @@ function formulario() {
             elementoMensagemDeErro.removeAttribute('role');
             elementoMensagemDeErro.removeAttribute('tabindex');
         }
-
     }
 
     function enviarFormulario(formulario) {
         formulario.addEventListener('submit', (evento) => {
             evento.preventDefault();
-            if (formulario.checkValidity()) {
-                pegarDadosDoFormulario(formulario);
-                despachaMensagemDeEnvio(formulario);
-                formulario.reset();
-            }
-        });
-    }
-
-    function pegarDadosDoFormulario(formulario) {
-        const camposDoFormulario = formulario.querySelectorAll(elementos.camposDoFormulario);
-        const dadosDeUsuarios = JSON.parse(localStorage.getItem(`${formulario.dataset.tipoFormulario}`)) || [];
-        const dadosDoFormulario = new Object();
-
-        camposDoFormulario.forEach(campo => {
-            dadosDoFormulario[campo.name] = campo.value;
-        });
-
-        console.log(dadosDoFormulario);
-
-        dadosDeUsuarios.push(dadosDoFormulario);
-
-        localStorage.setItem(`${formulario.dataset.tipoFormulario}`, JSON.stringify(dadosDeUsuarios));
-    }
-
-    function despachaMensagemDeEnvio(formulario) {
-        const tipoDeFormulario = formulario.dataset.tipoFormulario;
-        const eventoDoFormulario = new CustomEvent('formularioEnviado', {
-            detail: {
-                nome: tipoDeFormulario
+            if(formulario.checkValidity()) {
+                formulario.submit();
+                alert('Formulário enviado com sucesso');
             }
 
         });
 
-        document.dispatchEvent(eventoDoFormulario);
     }
 
 }
+
 
 export default formulario;

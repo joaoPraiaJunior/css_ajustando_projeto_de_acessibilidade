@@ -64,7 +64,6 @@ function formulario() {
             if (formulario.checkValidity()) {
                 pegarDadosDoFormulario(formulario);
                 despachaMensagemDeEnvio(formulario);
-                formulario.reset();
             }
         });
     }

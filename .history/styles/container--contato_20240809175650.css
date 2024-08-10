@@ -190,6 +190,8 @@
   display: inline-block;
   font-size: 1.3rem;
   font-weight: 600;
+  text-align: left;
+  width: 85%;
   color: var(--error);
   padding-top: 0.5rem;
 }

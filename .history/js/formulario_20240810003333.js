@@ -64,7 +64,6 @@ function formulario() {
             if (formulario.checkValidity()) {
                 pegarDadosDoFormulario(formulario);
                 despachaMensagemDeEnvio(formulario);
-                formulario.reset();
             }
         });
     }
@@ -87,7 +86,7 @@ function formulario() {
 
     function despachaMensagemDeEnvio(formulario) {
         const tipoDeFormulario = formulario.dataset.tipoFormulario;
-        const eventoDoFormulario = new CustomEvent('formularioEnviado', {
+        const eventoDoFormulario = new Event('formularioEnviado', {
             detail: {
                 nome: tipoDeFormulario
             }

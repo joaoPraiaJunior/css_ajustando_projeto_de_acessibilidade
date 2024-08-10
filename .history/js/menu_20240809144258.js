@@ -16,8 +16,7 @@ function menu() {
 
         item.addEventListener('click', function () {
             const submenu = item.querySelector(elementos.submenus);
-            const mostraSubmenu = submenu.style.display === 'block';
-            alternaSubmenu(item, !mostraSubmenu);
+            alternaSubmenu(item, false);
         });
 
         document.addEventListener('keydown', function (evento) {
@@ -36,11 +35,9 @@ function menu() {
         if(submenu) {
             submenu.style.display = mostraSubmenu ? 'block' : 'none';
             popup.setAttribute('aria-expanded', mostraSubmenu ? 'true' : 'false');
-            // mostraSubmenu ? icone.classList.add('active') : icone.classList.remove('active');
-            //O toogle pode passar um segundo parâmetro condicional.
-            icone.classList.toggle('active', mostraSubmenu);
+            icone.classList.toggle('active');
         }
     }
-}
 
+}
 export default menu;

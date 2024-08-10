@@ -124,7 +124,7 @@
                             <label for="inscricao">
                                 <input id="inscricao" type="email" name="inscricao" placeholder="Digite seu email" required>
                             </label>
-                            <button type="submit" data-abrir-modal="mensagem">Inscrever</button>
+                            <button type="submit" data-enviar-formulario="newsletter">Inscrever</button>
                         </form>
                     </div>
                     <span class="mensagem__erro" data-js="mensagem-de-erro" aria-hidden="true"></span>
@@ -218,10 +218,10 @@
                             </div>
                         </fieldset>
                     </div>
-                    <button type="submit" data-abrir-modal="mensagem">Enviar</button>
+                    <button type="submit" data-abrir-modal="mensagem" data-js="fechar-modal">Enviar</button>
                 </form>
             </div>
-            <div class="modal__overlay" data-js="fechar-modal"></div>
+            <div class="modal__overlay"></div>
         </section>
 
         <section class="container__duvidas">

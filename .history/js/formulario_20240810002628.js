@@ -61,17 +61,16 @@ function formulario() {
     function enviarFormulario(formulario) {
         formulario.addEventListener('submit', (evento) => {
             evento.preventDefault();
-            if (formulario.checkValidity()) {
+            if(formulario.checkValidity()) {
                 pegarDadosDoFormulario(formulario);
                 despachaMensagemDeEnvio(formulario);
-                formulario.reset();
             }
         });
     }
 
     function pegarDadosDoFormulario(formulario) {
         const camposDoFormulario = formulario.querySelectorAll(elementos.camposDoFormulario);
-        const dadosDeUsuarios = JSON.parse(localStorage.getItem(`${formulario.dataset.tipoFormulario}`)) || [];
+        const dadosDeUsuarios  = JSON.parse(localStorage.getItem(`${formulario.dataset.tipoFormulario}`)) || [];
         const dadosDoFormulario = new Object();
 
         camposDoFormulario.forEach(campo => {
@@ -87,7 +86,7 @@ function formulario() {
 
     function despachaMensagemDeEnvio(formulario) {
         const tipoDeFormulario = formulario.dataset.tipoFormulario;
-        const eventoDoFormulario = new CustomEvent('formularioEnviado', {
+        const eventoDoFormulario = new Event('formularioEnviado', {
             detail: {
                 nome: tipoDeFormulario
             }

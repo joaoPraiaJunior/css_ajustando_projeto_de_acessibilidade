@@ -124,7 +124,7 @@
                             <label for="inscricao">
                                 <input id="inscricao" type="email" name="inscricao" placeholder="Digite seu email" required>
                             </label>
-                            <button type="submit" data-abrir-modal="mensagem">Inscrever</button>
+                            <button type="submit" data-enviar-formulario="newsletter">Inscrever</button>
                         </form>
                     </div>
                     <span class="mensagem__erro" data-js="mensagem-de-erro" aria-hidden="true"></span>
@@ -134,9 +134,9 @@
             <img class="container__incricao--tablet" src="./assets/mandala-direita-tablet.svg" alt>
 
             <!-- Modal de formulário inscrito com sucesso -->
-            <div id="ver-modal-inscrito" class="modal" role="dialog" aria-labelledby="cabecalho-titulo-modal-enviado" aria-modal="true" data-tipo-modal="mensagem">
+            <div id="ver-modal-inscrito" class="modal" role="dialog" aria-labelledby="cabecalho-titulo-modal-enviado" aria-modal="true" data-tipo-modal="newslleter">
                 <div class="modal__container" data-js="conteudo-modal">
-                    <h2 id="cabecalho-titulo-modal-enviado" class="modal__titulo" data-titulo-modal data-mensagem-modal tabindex="0">
+                    <h2 id="cabecalho-titulo-modal-enviado" class="modal__titulo" data-titulo-modal tabindex="0">
                         
                     </h2>
                     <img class="cabecalho-icone-modal-enviado" src="./assets/icon-enviado.png" alt>
@@ -218,7 +218,7 @@
                             </div>
                         </fieldset>
                     </div>
-                    <button type="submit" data-abrir-modal="mensagem">Enviar</button>
+                    <button type="submit">Enviar</button>
                 </form>
             </div>
             <div class="modal__overlay" data-js="fechar-modal"></div>

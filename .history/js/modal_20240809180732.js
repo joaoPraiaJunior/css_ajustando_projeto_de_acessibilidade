@@ -6,18 +6,15 @@ function modal() {
         conteudoModal: '[data-js="conteudo-modal"]',
         tituloDoModal: 'data-titulo-modal',
         mensagemDeErro: '[data-js="mensagem-de-erro"]',
-        formulario: '[data-tipo-formulario]',
-        mensagemModal: 'data-mensagem-modal',
     }
 
     const abrirModal = document.querySelectorAll(elementos.abrirModal);
     const tipoModal = document.querySelectorAll(elementos.tipoModal);
-    let ultimoBotaoAtivo = null;
 
     tipoModal.forEach(modal => {
         abrirModal.forEach(botao => {
             botao.addEventListener('click', () => {
-                ultimoBotaoAtivo = document.activeElement;
+                const ultimoBotaoAtivo = document.activeElement;
                 ativarModal(botao, modal, ultimoBotaoAtivo);
             });
 
@@ -26,7 +23,6 @@ function modal() {
                 if (tecla === 'Escape') {
                     modal.style.display = 'none';
                     document.body.style.overflow = 'auto';
-                    ultimoBotaoAtivo.focus();
                 }
             });
         });
@@ -42,19 +38,18 @@ function modal() {
             tituloDoModal.focus();
             desativarModal(modal, ultimoBotaoAtivo);
             focoSomenteNoModal(modal);
-            mensagemDeEnvioParaUsuario(tituloDoModal);
         }
     }
 
     function desativarModal(modal, ultimoBotaoAtivo) {
         const botaoFecharModal = modal.querySelectorAll(elementos.fecharModal);
-        const formularioModal = modal.querySelector(elementos.formulario);
+        const formularioModal = modal.querySelector('form');
         botaoFecharModal.forEach(botao => {
             botao.addEventListener('click', () => {
                 modal.style.display = 'none';
                 document.body.style.overflow = 'auto';
                 ultimoBotaoAtivo.focus();
-                if (formularioModal) {
+                if(formularioModal) {
                     limparFormuLarioModal(formularioModal);
                 }
             });
@@ -69,6 +64,7 @@ function modal() {
             mensagem.textContent = '';
         });
     }
+
 
     function focoSomenteNoModal(modal) {
         const containerDoModal = modal.querySelector(elementos.conteudoModal);
@@ -95,16 +91,6 @@ function modal() {
             }
         });
     }
-
-    function mensagemDeEnvioParaUsuario(tituloDoModal) {
-        const atributoDaMensagem = tituloDoModal.hasAttribute(elementos.mensagemModal);
-        if (atributoDaMensagem) {
-            document.addEventListener('formularioEnviado', (evento) => {
-                tituloDoModal.textContent = `O formulário de ${evento.detail.nome} foi enviado!`;
-            });
-        }
-
-    }
 }
 
-    export default modal;
+export default modal;

@@ -37,8 +37,7 @@ function menu() {
             submenu.style.display = mostraSubmenu ? 'block' : 'none';
             popup.setAttribute('aria-expanded', mostraSubmenu ? 'true' : 'false');
             // mostraSubmenu ? icone.classList.add('active') : icone.classList.remove('active');
-            //O toogle pode passar um segundo parâmetro condicional.
-            icone.classList.toggle('active', mostraSubmenu);
+            icone.classList.toggle('active');
         }
     }
 }
