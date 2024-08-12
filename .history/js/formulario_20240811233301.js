@@ -104,11 +104,11 @@ function formulario() {
             mensagemErroSucesso.style.color = 'red';
         }
 
-        elementosQueManipulamMensagem(formulario, mensagemErroSucesso);
+        elementosQueManipulamMensagem(mensagemErroSucesso, formulario);
 
     }
 
-    function elementosQueManipulamMensagem(formulario, mensagemErroSucesso) {
+    function elementosQueManipulamMensagem(mensagemErroSucesso, formulario) {
         const tituloFormulario = formulario.querySelector(elementos.tituloDoFormulario);
         mensagemErroSucesso.setAttribute('aria-hidden', 'false');
         mensagemErroSucesso.setAttribute('role', 'alert');
