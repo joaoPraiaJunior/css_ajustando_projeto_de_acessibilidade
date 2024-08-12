@@ -7,7 +7,6 @@ function modal() {
         tituloDoModal: 'data-titulo-modal',
         mensagemDeErro: '[data-js="mensagem-de-erro"]',
         formulario: '[data-tipo-formulario]',
-        mensagemErroSucesso: '[data-js="formulario-mensagem-erro-sucesso"]',
     }
 
     const abrirModal = document.querySelectorAll(elementos.abrirModal);
@@ -25,7 +24,9 @@ function modal() {
             document.addEventListener('keydown', (evento) => {
                 const tecla = evento.key;
                 if (tecla === 'Escape') {
-                    elementosQueDesativamOModal(modal, ultimoBotaoAtivo)
+                    modal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                    ultimoBotaoAtivo.focus();
                 }
             });
         });
@@ -36,42 +37,35 @@ function modal() {
         const tipoModalAtual = modal.dataset.tipoModal;
         const tituloDoModal = modal.querySelector(`[${elementos.tituloDoModal}]`);
         if (botaoClicado === tipoModalAtual) {
-            elementosQueAtivamOModal(modal, tituloDoModal)
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+            tituloDoModal.focus();
             desativarModal(modal, ultimoBotaoAtivo);
             focoSomenteNoModal(modal);
         }
     }
 
-    function elementosQueAtivamOModal(modal, tituloDoModal) {
-        modal.style.display = 'flex';
-        document.body.style.overflow = 'hidden';
-        tituloDoModal.focus();
-    }
-
     function desativarModal(modal, ultimoBotaoAtivo) {
         const botaoFecharModal = modal.querySelectorAll(elementos.fecharModal);
+        const formularioModal = modal.querySelector(elementos.formulario);
         botaoFecharModal.forEach(botao => {
             botao.addEventListener('click', () => {
                 elementosQueDesativamOModal(modal, ultimoBotaoAtivo);
+                if (formularioModal) {
+                    limparFormuLarioModal(formularioModal);
+                }
             });
         });
     }
 
     function elementosQueDesativamOModal(modal, ultimoBotaoAtivo) {
-        const formularioModal = modal.querySelector(elementos.formulario);
         modal.style.display = 'none';
         document.body.style.overflow = 'auto';
         ultimoBotaoAtivo.focus();
-        if (formularioModal) {
-            limparFormuLarioModal(formularioModal);
-        }
     }
 
     function limparFormuLarioModal(formularioModal) {
         const mensagensDeErro = formularioModal.querySelectorAll(elementos.mensagemDeErro);
-        const mensagemErroSucesso = formularioModal.querySelector(elementos.mensagemErroSucesso);
-        mensagemErroSucesso.textContent = '';
-        mensagemErroSucesso.classList.remove('contato__mensagem--ativo');
         formularioModal.reset();
 
         mensagensDeErro.forEach(mensagem => {
@@ -98,7 +92,7 @@ function modal() {
                     // Se o tab estiver pressionado e o foco estiver no último elemento o foco vai para o primeiro elemento
                     if (document.activeElement === ultimoElementoFocado) {
                         primeiroElementoFocado.focus();
-                        evento.preventDefault();
+                        evento.preventDefault();;
                     }
                 }
             }

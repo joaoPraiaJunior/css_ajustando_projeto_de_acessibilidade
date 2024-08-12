@@ -196,12 +196,12 @@
 
 .contato__mensagem {
   font-size: 1.6rem;
-  height: 0;
-  transition: height .3s;
+  width: ;: 0;
+  transition: height .5s ease-in-out;
 }
 
 .contato__mensagem--ativo {
-  height: 2rem;
+  width: 100%;
 }
 
 .newsletter {

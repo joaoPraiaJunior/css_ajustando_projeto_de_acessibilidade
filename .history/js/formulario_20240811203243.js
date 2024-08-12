@@ -7,7 +7,6 @@ function formulario() {
         camposDoFormulario: '[required]',
         elementoMensagemDeErro: '[data-js="mensagem-de-erro"]',
         mensagemErroSucesso: '[data-js="formulario-mensagem-erro-sucesso"]',
-        tituloDoFormulario: '[data-titulo-modal]',
     }
 
     const formularios = document.querySelectorAll(elementos.formularios);
@@ -54,13 +53,12 @@ function formulario() {
 
         if (!validadorDeInput) {
             elementoMensagemDeErro.textContent = mensagemDeErroCustomizada;
-            elementoMensagemDeErro.setAttribute('tabindex', '0');
             elementoMensagemDeErro.setAttribute('aria-hidden', 'false');
             elementoMensagemDeErro.setAttribute('role', 'alert');
+            elementoMensagemDeErro.setAttribute('tabindex', '0');
 
         } else {
             elementoMensagemDeErro.textContent = '';
-            elementoMensagemDeErro.setAttribute('aria-disabled', 'true');
             elementoMensagemDeErro.removeAttribute('role');
             elementoMensagemDeErro.setAttribute('tabindex', '-1');
         }
@@ -104,17 +102,17 @@ function formulario() {
             mensagemErroSucesso.style.color = 'red';
         }
 
-        elementosQueManipulamMensagem(mensagemErroSucesso, formulario);
+        elementosQueManipulamMensagem(mensagemErroSucesso);
         mensagemErroSucesso.focus();
 
     }
 
-    function elementosQueManipulamMensagem(mensagemErroSucesso, formulario) {
-        const tituloFormulario = formulario.querySelector(elementos.tituloDoFormulario);
+    function elementosQueManipulamMensagem(mensagemErroSucesso) {
+        console.log('teste')
         mensagemErroSucesso.setAttribute('aria-hidden', 'false');
         mensagemErroSucesso.setAttribute('role', 'alert');
+        mensagemErroSucesso.setAttribute('tabindex', '0');
         mensagemErroSucesso.classList.add('contato__mensagem--ativo');
-        tituloFormulario.focus();
 
         setTimeout(() => {
             mensagemErroSucesso.textContent = '';

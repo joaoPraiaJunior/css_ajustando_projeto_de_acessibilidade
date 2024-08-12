@@ -7,7 +7,6 @@ function formulario() {
         camposDoFormulario: '[required]',
         elementoMensagemDeErro: '[data-js="mensagem-de-erro"]',
         mensagemErroSucesso: '[data-js="formulario-mensagem-erro-sucesso"]',
-        tituloDoFormulario: '[data-titulo-modal]',
     }
 
     const formularios = document.querySelectorAll(elementos.formularios);
@@ -110,11 +109,12 @@ function formulario() {
     }
 
     function elementosQueManipulamMensagem(mensagemErroSucesso, formulario) {
-        const tituloFormulario = formulario.querySelector(elementos.tituloDoFormulario);
+        console.log('teste')
         mensagemErroSucesso.setAttribute('aria-hidden', 'false');
         mensagemErroSucesso.setAttribute('role', 'alert');
+        mensagemErroSucesso.setAttribute('tabindex', '0');
         mensagemErroSucesso.classList.add('contato__mensagem--ativo');
-        tituloFormulario.focus();
+        formulario.focus();
 
         setTimeout(() => {
             mensagemErroSucesso.textContent = '';

@@ -7,7 +7,6 @@ function formulario() {
         camposDoFormulario: '[required]',
         elementoMensagemDeErro: '[data-js="mensagem-de-erro"]',
         mensagemErroSucesso: '[data-js="formulario-mensagem-erro-sucesso"]',
-        tituloDoFormulario: '[data-titulo-modal]',
     }
 
     const formularios = document.querySelectorAll(elementos.formularios);
@@ -54,15 +53,15 @@ function formulario() {
 
         if (!validadorDeInput) {
             elementoMensagemDeErro.textContent = mensagemDeErroCustomizada;
-            elementoMensagemDeErro.setAttribute('tabindex', '0');
             elementoMensagemDeErro.setAttribute('aria-hidden', 'false');
             elementoMensagemDeErro.setAttribute('role', 'alert');
+            elementoMensagemDeErro.setAttribute('tabindex', '0');
 
         } else {
             elementoMensagemDeErro.textContent = '';
-            elementoMensagemDeErro.setAttribute('aria-disabled', 'true');
+            elementoMensagemDeErro.setAttribute('aria-hidden', 'true');
             elementoMensagemDeErro.removeAttribute('role');
-            elementoMensagemDeErro.setAttribute('tabindex', '-1');
+            elementoMensagemDeErro.removeAttribute('tabindex');
         }
     }
 
@@ -104,25 +103,25 @@ function formulario() {
             mensagemErroSucesso.style.color = 'red';
         }
 
-        elementosQueManipulamMensagem(mensagemErroSucesso, formulario);
+        elementosQueManipulamMensagem(mensagemErroSucesso);
+
         mensagemErroSucesso.focus();
 
     }
 
-    function elementosQueManipulamMensagem(mensagemErroSucesso, formulario) {
-        const tituloFormulario = formulario.querySelector(elementos.tituloDoFormulario);
+    function elementosQueManipulamMensagem(mensagemErroSucesso) {
         mensagemErroSucesso.setAttribute('aria-hidden', 'false');
         mensagemErroSucesso.setAttribute('role', 'alert');
-        mensagemErroSucesso.classList.add('contato__mensagem--ativo');
-        tituloFormulario.focus();
+        mensagemErroSucesso.setAttribute('tabindex', '0');
+        mensagemErroSucesso.ClassList.add('contato__mensagem--ativo');
 
         setTimeout(() => {
             mensagemErroSucesso.textContent = '';
             mensagemErroSucesso.setAttribute('aria-hidden', 'true');
             mensagemErroSucesso.removeAttribute('role');
             mensagemErroSucesso.removeAttribute('tabindex');
-            mensagemErroSucesso.classList.remove('contato__mensagem--ativo');
-        }, 10000);
+            mensagemErroSucesso.ClassList.remove('contato__mensagem--ativo');
+        }, 5000);
     }
 
 }

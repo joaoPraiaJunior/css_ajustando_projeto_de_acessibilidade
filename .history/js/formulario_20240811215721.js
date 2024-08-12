@@ -110,13 +110,13 @@ function formulario() {
     }
 
     function elementosQueManipulamMensagem(mensagemErroSucesso, formulario) {
-        const tituloFormulario = formulario.querySelector(elementos.tituloDoFormulario);
         mensagemErroSucesso.setAttribute('aria-hidden', 'false');
         mensagemErroSucesso.setAttribute('role', 'alert');
+        mensagemErroSucesso.setAttribute('tabindex', '0');
         mensagemErroSucesso.classList.add('contato__mensagem--ativo');
-        tituloFormulario.focus();
 
         setTimeout(() => {
+            formulario.querySelector(elementos.tituloDoFormulario).focus();
             mensagemErroSucesso.textContent = '';
             mensagemErroSucesso.setAttribute('aria-hidden', 'true');
             mensagemErroSucesso.removeAttribute('role');

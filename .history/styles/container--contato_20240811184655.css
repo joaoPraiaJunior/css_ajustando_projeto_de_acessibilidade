@@ -194,14 +194,15 @@
   padding-top: 0.5rem;
 }
 
-.contato__mensagem {
+.contato__erro {
   font-size: 1.6rem;
-  height: 0;
-  transition: height .3s;
+  color: var(--error);
+  min-height: 0;
+  transition: max-height .5s ease-in-out;
 }
 
-.contato__mensagem--ativo {
-  height: 2rem;
+.contato__erro--ativo {
+  max-height: .9rem;
 }
 
 .newsletter {

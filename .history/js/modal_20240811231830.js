@@ -50,21 +50,21 @@ function modal() {
 
     function desativarModal(modal, ultimoBotaoAtivo) {
         const botaoFecharModal = modal.querySelectorAll(elementos.fecharModal);
+        const formularioModal = modal.querySelector(elementos.formulario);
         botaoFecharModal.forEach(botao => {
             botao.addEventListener('click', () => {
                 elementosQueDesativamOModal(modal, ultimoBotaoAtivo);
+                if (formularioModal) {
+                    limparFormuLarioModal(formularioModal);
+                }
             });
         });
     }
 
     function elementosQueDesativamOModal(modal, ultimoBotaoAtivo) {
-        const formularioModal = modal.querySelector(elementos.formulario);
         modal.style.display = 'none';
         document.body.style.overflow = 'auto';
         ultimoBotaoAtivo.focus();
-        if (formularioModal) {
-            limparFormuLarioModal(formularioModal);
-        }
     }
 
     function limparFormuLarioModal(formularioModal) {

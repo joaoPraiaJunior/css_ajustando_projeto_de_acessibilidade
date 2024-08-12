@@ -195,9 +195,11 @@
                             <input type="tel" id="telefone" name="telefone" placeholder="(XX) XXXX-XXXX" required>
                             <span class="mensagem__erro" data-js="mensagem-de-erro" aria-hidden="true"></span>
                         </div>
-                        <div class="container__campos" data-js="container-campo">
-                            <label for="mensagem">Mensagem:</label>
-                            <textarea id="mensagem" name="mensagem" placeholder="Escreva sua mensagem" maxlength="500" required></textarea>
+                        <div data-js="container-campo">
+                            <div class="container__campos">
+                                <label for="mensagem">Mensagem:</label>
+                                <textarea id="mensagem" name="mensagem" placeholder="Escreva sua mensagem" maxlength="500" required></textarea>
+                            </div>
                             <span class="mensagem__erro" data-js="mensagem-de-erro" aria-hidden="true"></span>
                         </div>
                         <fieldset>

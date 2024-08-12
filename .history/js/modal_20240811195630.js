@@ -7,7 +7,6 @@ function modal() {
         tituloDoModal: 'data-titulo-modal',
         mensagemDeErro: '[data-js="mensagem-de-erro"]',
         formulario: '[data-tipo-formulario]',
-        mensagemErroSucesso: '[data-js="formulario-mensagem-erro-sucesso"]',
     }
 
     const abrirModal = document.querySelectorAll(elementos.abrirModal);
@@ -50,28 +49,25 @@ function modal() {
 
     function desativarModal(modal, ultimoBotaoAtivo) {
         const botaoFecharModal = modal.querySelectorAll(elementos.fecharModal);
+        const formularioModal = modal.querySelector(elementos.formulario);
         botaoFecharModal.forEach(botao => {
             botao.addEventListener('click', () => {
                 elementosQueDesativamOModal(modal, ultimoBotaoAtivo);
+                if (formularioModal) {
+                    limparFormuLarioModal(formularioModal);
+                }
             });
         });
     }
 
     function elementosQueDesativamOModal(modal, ultimoBotaoAtivo) {
-        const formularioModal = modal.querySelector(elementos.formulario);
         modal.style.display = 'none';
         document.body.style.overflow = 'auto';
         ultimoBotaoAtivo.focus();
-        if (formularioModal) {
-            limparFormuLarioModal(formularioModal);
-        }
     }
 
     function limparFormuLarioModal(formularioModal) {
         const mensagensDeErro = formularioModal.querySelectorAll(elementos.mensagemDeErro);
-        const mensagemErroSucesso = formularioModal.querySelector(elementos.mensagemErroSucesso);
-        mensagemErroSucesso.textContent = '';
-        mensagemErroSucesso.classList.remove('contato__mensagem--ativo');
         formularioModal.reset();
 
         mensagensDeErro.forEach(mensagem => {
@@ -98,7 +94,9 @@ function modal() {
                     // Se o tab estiver pressionado e o foco estiver no último elemento o foco vai para o primeiro elemento
                     if (document.activeElement === ultimoElementoFocado) {
                         primeiroElementoFocado.focus();
-                        evento.preventDefault();
+                        evento.preventDefault();;
+                    } else {
+                        document.activeElement.nextSiblingElement.focus();
                     }
                 }
             }
