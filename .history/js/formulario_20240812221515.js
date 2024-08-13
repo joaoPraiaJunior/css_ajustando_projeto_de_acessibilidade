@@ -100,7 +100,7 @@ function formulario() {
         const mensagemErroSucesso = formulario.querySelector(elementos.mensagemErroSucesso);
 
         if (sucesso) {
-            mensagemErroSucesso.textContent = `Formulário de ${formulario.dataset.tipoFormulario} enviado com sucesso!`;
+            mensagemErroSucesso.textContent = `Formulario de ${formulario.dataset.tipoFormulario} enviado com sucesso!`;
             mensagemErroSucesso.style.color = '#008000';
         } else {
             mensagemErroSucesso.textContent = `Erro ao enviar o formulário de ${formulario.dataset.tipoFormulario}, verifique os campos obrigatórios!`;
