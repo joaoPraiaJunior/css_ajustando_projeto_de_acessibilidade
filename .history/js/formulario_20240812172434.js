@@ -7,12 +7,10 @@ function formulario() {
         camposDoFormulario: '[required]',
         elementoMensagemDeErro: '[data-js="mensagem-de-erro"]',
         mensagemErroSucesso: '[data-js="formulario-mensagem-erro-sucesso"]',
-        focoDeNavegacao: '[data-foco]',
+        tituloDoFormulario: '[data-titulo-modal]',
     }
 
     const formularios = document.querySelectorAll(elementos.formularios);
-    let tempoDaMensagemNaTela = 15000;
-    let intervaloDaAnimacaoMensagem = null;
 
     formularios.forEach(formulario => {
         pegarCamposDoFromulario(formulario);
@@ -98,7 +96,6 @@ function formulario() {
 
     function mensagemErroSucesso(formulario, sucesso) {
         const mensagemErroSucesso = formulario.querySelector(elementos.mensagemErroSucesso);
-
         if (sucesso) {
             mensagemErroSucesso.textContent = `Formulario de ${formulario.dataset.tipoFormulario} enviado com sucesso!`;
             mensagemErroSucesso.style.color = '#008000';
@@ -107,37 +104,26 @@ function formulario() {
             mensagemErroSucesso.style.color = '#bf0000';
         }
 
-        resetarParaReiniciarAnimacao();
         elementosQueManipulamMensagem(formulario, mensagemErroSucesso);
 
     }
 
     function elementosQueManipulamMensagem(formulario, mensagemErroSucesso) {
-        const focoDeNavegacao = formulario.querySelector(elementos.focoDeNavegacao);
+        const tituloFormulario = formulario.querySelector(elementos.tituloDoFormulario);
         mensagemErroSucesso.setAttribute('aria-hidden', 'false');
         mensagemErroSucesso.setAttribute('role', 'alert');
         mensagemErroSucesso.classList.add('contato__mensagem--ativo');
-        focoDeNavegacao.focus();
+        tituloFormulario.focus();
 
-        animacaoDaMensagemDeErroSucesso(mensagemErroSucesso);
-    }
-
-    function animacaoDaMensagemDeErroSucesso(mensagemErroSucesso) {
-    intervaloDaAnimacaoMensagem = setTimeout(() => {
+        setTimeout(() => {
             mensagemErroSucesso.textContent = '';
             mensagemErroSucesso.setAttribute('aria-hidden', 'true');
             mensagemErroSucesso.removeAttribute('role');
             mensagemErroSucesso.removeAttribute('tabindex');
             mensagemErroSucesso.classList.remove('contato__mensagem--ativo');
-        }, tempoDaMensagemNaTela);
+        }, 10000);
     }
 
-    function resetarParaReiniciarAnimacao() {
-        if(intervaloDaAnimacaoMensagem) {
-            clearTimeout(intervaloDaAnimacaoMensagem);
-            intervaloDaAnimacaoMensagem = null;
-        }
-    }
 }
 
 export default formulario;

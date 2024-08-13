@@ -11,8 +11,7 @@ function formulario() {
     }
 
     const formularios = document.querySelectorAll(elementos.formularios);
-    let tempoDaMensagemNaTela = 15000;
-    let intervaloDaAnimacaoMensagem = null;
+    let tempoDaAparicaoDaMensagem = 10000;
 
     formularios.forEach(formulario => {
         pegarCamposDoFromulario(formulario);
@@ -98,7 +97,6 @@ function formulario() {
 
     function mensagemErroSucesso(formulario, sucesso) {
         const mensagemErroSucesso = formulario.querySelector(elementos.mensagemErroSucesso);
-
         if (sucesso) {
             mensagemErroSucesso.textContent = `Formulario de ${formulario.dataset.tipoFormulario} enviado com sucesso!`;
             mensagemErroSucesso.style.color = '#008000';
@@ -107,7 +105,6 @@ function formulario() {
             mensagemErroSucesso.style.color = '#bf0000';
         }
 
-        resetarParaReiniciarAnimacao();
         elementosQueManipulamMensagem(formulario, mensagemErroSucesso);
 
     }
@@ -119,25 +116,15 @@ function formulario() {
         mensagemErroSucesso.classList.add('contato__mensagem--ativo');
         focoDeNavegacao.focus();
 
-        animacaoDaMensagemDeErroSucesso(mensagemErroSucesso);
-    }
-
-    function animacaoDaMensagemDeErroSucesso(mensagemErroSucesso) {
-    intervaloDaAnimacaoMensagem = setTimeout(() => {
+       return setTimeout(() => {
             mensagemErroSucesso.textContent = '';
             mensagemErroSucesso.setAttribute('aria-hidden', 'true');
             mensagemErroSucesso.removeAttribute('role');
             mensagemErroSucesso.removeAttribute('tabindex');
             mensagemErroSucesso.classList.remove('contato__mensagem--ativo');
-        }, tempoDaMensagemNaTela);
+        }, tempoDaAparicaoDaMensagem);
     }
 
-    function resetarParaReiniciarAnimacao() {
-        if(intervaloDaAnimacaoMensagem) {
-            clearTimeout(intervaloDaAnimacaoMensagem);
-            intervaloDaAnimacaoMensagem = null;
-        }
-    }
 }
 
 export default formulario;

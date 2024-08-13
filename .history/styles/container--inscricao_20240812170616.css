@@ -27,7 +27,7 @@
 .container__incricao .container__incricao--form {
   display: flex;
   flex-direction: column;
-  row-gap: 1.4rem;
+  row-gap: 2.4rem;
   max-width: 110.2rem;
 }
 

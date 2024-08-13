@@ -11,8 +11,7 @@ function formulario() {
     }
 
     const formularios = document.querySelectorAll(elementos.formularios);
-    let tempoDaMensagemNaTela = 15000;
-    let intervaloDaAnimacaoMensagem = null;
+    let tempoDaAparicaoDaMensagem = 20000;
 
     formularios.forEach(formulario => {
         pegarCamposDoFromulario(formulario);
@@ -98,6 +97,7 @@ function formulario() {
 
     function mensagemErroSucesso(formulario, sucesso) {
         const mensagemErroSucesso = formulario.querySelector(elementos.mensagemErroSucesso);
+        clearTimeout(animacaoDaMensagemDeErroSucesso);
 
         if (sucesso) {
             mensagemErroSucesso.textContent = `Formulario de ${formulario.dataset.tipoFormulario} enviado com sucesso!`;
@@ -107,7 +107,8 @@ function formulario() {
             mensagemErroSucesso.style.color = '#bf0000';
         }
 
-        resetarParaReiniciarAnimacao();
+        tempoDaAparicaoDaMensagem = tempoDaAparicaoDaMensagem;
+
         elementosQueManipulamMensagem(formulario, mensagemErroSucesso);
 
     }
@@ -120,24 +121,23 @@ function formulario() {
         focoDeNavegacao.focus();
 
         animacaoDaMensagemDeErroSucesso(mensagemErroSucesso);
+
     }
 
     function animacaoDaMensagemDeErroSucesso(mensagemErroSucesso) {
-    intervaloDaAnimacaoMensagem = setTimeout(() => {
+        const animacao = setTimeout(() => {
             mensagemErroSucesso.textContent = '';
             mensagemErroSucesso.setAttribute('aria-hidden', 'true');
             mensagemErroSucesso.removeAttribute('role');
             mensagemErroSucesso.removeAttribute('tabindex');
             mensagemErroSucesso.classList.remove('contato__mensagem--ativo');
-        }, tempoDaMensagemNaTela);
+        }, tempoDaAparicaoDaMensagem);
+
+        console.log(tempoDaAparicaoDaMensagem --);
+
+        return animacao;
     }
 
-    function resetarParaReiniciarAnimacao() {
-        if(intervaloDaAnimacaoMensagem) {
-            clearTimeout(intervaloDaAnimacaoMensagem);
-            intervaloDaAnimacaoMensagem = null;
-        }
-    }
 }
 
 export default formulario;

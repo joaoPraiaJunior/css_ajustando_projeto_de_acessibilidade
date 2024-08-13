@@ -11,8 +11,8 @@ function formulario() {
     }
 
     const formularios = document.querySelectorAll(elementos.formularios);
-    let tempoDaMensagemNaTela = 15000;
-    let intervaloDaAnimacaoMensagem = null;
+    let tempoDaAparicaoDaMensagem = 20000;
+    let animacao = null;
 
     formularios.forEach(formulario => {
         pegarCamposDoFromulario(formulario);
@@ -107,7 +107,6 @@ function formulario() {
             mensagemErroSucesso.style.color = '#bf0000';
         }
 
-        resetarParaReiniciarAnimacao();
         elementosQueManipulamMensagem(formulario, mensagemErroSucesso);
 
     }
@@ -123,21 +122,16 @@ function formulario() {
     }
 
     function animacaoDaMensagemDeErroSucesso(mensagemErroSucesso) {
-    intervaloDaAnimacaoMensagem = setTimeout(() => {
+        setTimeout(() => {
             mensagemErroSucesso.textContent = '';
             mensagemErroSucesso.setAttribute('aria-hidden', 'true');
             mensagemErroSucesso.removeAttribute('role');
             mensagemErroSucesso.removeAttribute('tabindex');
             mensagemErroSucesso.classList.remove('contato__mensagem--ativo');
-        }, tempoDaMensagemNaTela);
+        }, tempoDaAparicaoDaMensagem);
+
     }
 
-    function resetarParaReiniciarAnimacao() {
-        if(intervaloDaAnimacaoMensagem) {
-            clearTimeout(intervaloDaAnimacaoMensagem);
-            intervaloDaAnimacaoMensagem = null;
-        }
-    }
 }
 
 export default formulario;

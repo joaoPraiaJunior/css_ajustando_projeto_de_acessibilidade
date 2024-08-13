@@ -116,7 +116,7 @@
             <img class="container__incricao--mobile" src="./assets/mandala-superior-mobile.svg" alt>
             <img class="container__incricao--tablet" src="./assets/mandala-esquerda-tablet.svg" alt>
             <form class="container__incricao--form" data-tipo-formulario="newsletter">
-                <h2 class="container__incricao--form-titulo">Inscreva-se para ganhar descontos!</h2>
+                <h2 class="container__incricao--form-titulo" data-titulo-modal tabindex="0">Inscreva-se para ganhar descontos!</h2>
                 <p class="container__incricao--form-texto">Cadastre-se em nossa newsletter para receber descontos e
                     novidades sobre nossos serviços.</p>
                 <span class="contato__mensagem" data-js="formulario-mensagem-erro-sucesso" aria-hidden="true"></span>
@@ -125,7 +125,7 @@
                         <label for="inscricao">
                             <input id="inscricao" type="email" name="inscricao" placeholder="Digite seu email" required>
                         </label>
-                        <button type="submit" data-foco aria-label="inscrição de newsletter">Inscrever</button>
+                        <button type="submit">Inscrever</button>
                     </div>
                     <span class="mensagem__erro" data-js="mensagem-de-erro" aria-hidden="true"></span>
                 </div>
@@ -172,7 +172,7 @@
             <div class="modal__container" data-js="conteudo-modal">
                 <form class="container__contato--form" data-tipo-formulario="contato">
                     <div class="container__contato--form-conteudo">
-                        <h2 id="titulo-modal" class="container__contato--form-conteudo-titulo" tabindex="0" data-foco>Formulário de contato</h2>
+                        <h2 id="titulo-modal" class="container__contato--form-conteudo-titulo" tabindex="0" data-titulo-modal>Formulário de contato</h2>
                         <button type="button" class="modal__botao--fechar" aria-label="fechar formulário" data-js="fechar-modal">
                             <span aria-hidden="true">×</span>
                         </button>

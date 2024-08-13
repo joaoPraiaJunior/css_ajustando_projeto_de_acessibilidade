@@ -11,7 +11,7 @@ function formulario() {
     }
 
     const formularios = document.querySelectorAll(elementos.formularios);
-    let tempoDaMensagemNaTela = 15000;
+    let tempoDaAparicaoDaMensagem = 15000;
     let intervaloDaAnimacaoMensagem = null;
 
     formularios.forEach(formulario => {
@@ -129,7 +129,7 @@ function formulario() {
             mensagemErroSucesso.removeAttribute('role');
             mensagemErroSucesso.removeAttribute('tabindex');
             mensagemErroSucesso.classList.remove('contato__mensagem--ativo');
-        }, tempoDaMensagemNaTela);
+        }, tempoDaAparicaoDaMensagem);
     }
 
     function resetarParaReiniciarAnimacao() {

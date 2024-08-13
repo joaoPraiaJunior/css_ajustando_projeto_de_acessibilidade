@@ -195,6 +195,7 @@
 }
 
 .contato__mensagem {
+  display: none;
   font-size: 1.6rem;
   font-weight: 600;
   height: 0;

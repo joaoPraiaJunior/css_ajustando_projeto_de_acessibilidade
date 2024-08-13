@@ -34,18 +34,18 @@ function modal() {
     function ativarModal(botao, modal, ultimoBotaoAtivo) {
         const botaoClicado = botao.dataset.abrirModal;
         const tipoModalAtual = modal.dataset.tipoModal;
-        const focoDeNavegacao = modal.querySelector(`[${elementos.focoDeNavegacao}]`);
+        const tituloDoModal = modal.querySelector(`[${elementos.tituloDoModal}]`);
         if (botaoClicado === tipoModalAtual) {
-            elementosQueAtivamOModal(modal, focoDeNavegacao)
+            elementosQueAtivamOModal(modal, tituloDoModal)
             desativarModal(modal, ultimoBotaoAtivo);
             focoSomenteNoModal(modal);
         }
     }
 
-    function elementosQueAtivamOModal(modal, focoDeNavegacao) {
+    function elementosQueAtivamOModal(modal, tituloDoModal) {
         modal.style.display = 'flex';
         document.body.style.overflow = 'hidden';
-        focoDeNavegacao.focus();
+        tituloDoModal.focus();
     }
 
     function desativarModal(modal, ultimoBotaoAtivo) {
@@ -82,7 +82,7 @@ function modal() {
     function focoSomenteNoModal(modal) {
         const containerDoModal = modal.querySelector(elementos.conteudoModal);
         const elementosDoModal = containerDoModal.getElementsByTagName('*');
-        const primeiroElementoFocado = [...elementosDoModal].find(elemento => elemento.hasAttribute(elementos.focoDeNavegacao));
+        const primeiroElementoFocado = [...elementosDoModal].find(elemento => elemento.hasAttribute(elementos.tituloDoModal));
         const ultimoElementoFocado = elementosDoModal[elementosDoModal.length - 1];
 
         containerDoModal.addEventListener('keydown', (evento) => {
