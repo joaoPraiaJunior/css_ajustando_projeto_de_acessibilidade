@@ -1,0 +1,148 @@
+.cabecalho {
+  background: var(--verde-claro);
+}
+
+.cabecalho .cabecalho__nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 16px;
+  padding: 40px 16px;
+  white-space: nowrap;
+}
+
+.cabecalho__logo {
+  max-width: 17.2rem;
+  margin-bottom: 1rem;
+}
+
+.cabecalho__nav-lista {
+  font-size: 1.5rem;
+}
+
+.cabecalho__nav-lista::before {
+  content: "";
+  width: 100%;
+  position: absolute;
+  top: -1rem;
+  border-top: 1px solid black;
+}
+
+.cabecalho .cabecalho__nav .cabecalho__nav-lista {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  position: relative;
+  width: 100%;
+  padding-top: 1rem;
+}
+
+.cabecalho .cabecalho__nav .cabecalho__nav-lista a {
+  color: #0c0421;
+  margin: 0.5rem;
+  text-decoration: none;
+  font-weight: 400;
+  line-height: 150%;
+  transition: font-weight 0.5s;
+}
+
+.cabecalho .cabecalho__nav .cabecalho__nav-lista a:hover {
+  font-weight: 600;
+}
+
+.cabecalho__lista-item {
+  display: flex;
+}
+
+.submenu li a:hover {
+  font-weight: 700 !important;
+}
+
+.cabecalho__lista-item .icone {
+  display: none;
+  font-size: 2.2rem;
+  transition: transform 0.5s ease;
+  cursor: pointer;
+  color: var(--lilas-escuro);
+  align-self: center;
+  position: relative;
+  right: 0.5rem;
+}
+
+/* seta submenu */
+.cabecalho__lista-item .icone.active {
+  transform: rotate(180deg);
+}
+
+.cabecalho__nav-lista .submenu {
+  display: none;
+  font-size: 1.5rem;
+  position: absolute;
+  top: 1.0rem;
+  border: 0.1rem solid #ddd;
+  padding: .6rem;
+  border-top: none;
+  border-bottom-left-radius: 0.8rem;
+  border-bottom-right-radius: 0.8rem;
+  background: var(--cinza-claro);
+  box-shadow: 0.4rem 0.4rem 0.8rem 0rem rgba(0, 0, 0, 0.1);
+  z-index: 1;
+  min-width: 16rem;
+  border-radius: 0.4rem;
+  margin-top: 4rem;
+}
+
+.submenu li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  text-align: center;
+  display: flex;
+  border-bottom: 0.2rem solid #cad4fa;
+  margin: 0.8rem 0.8rem;
+  min-width: 17rem;
+  height: 4.5rem;
+}
+
+.submenu li:first-child {
+  margin-top: unset;
+}
+
+.submenu li:last-child {
+  margin-bottom: unset;
+  border-bottom: none;
+}
+
+@media screen and (min-width: 480px) {
+  .cabecalho__lista-item .icone {
+    display: block;
+  }
+
+  .cabecalho .cabecalho__nav .cabecalho__nav-lista a {
+    font-size: 2.2rem;
+  }
+
+  .cabecalho__nav-lista .submenu {
+    font-size: 2.2rem;
+    padding: 1.6rem;
+  }
+
+  .submenu li {
+    min-width: 17.0rem;
+    height: 4.5rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  /* Tablet */
+
+  .cabecalho__logo {
+    max-width: 27rem;
+  }
+
+  .cabecalho__nav-lista {
+    font-size: 2.2rem;
+    gap: 2.2rem;
+  }
+}
