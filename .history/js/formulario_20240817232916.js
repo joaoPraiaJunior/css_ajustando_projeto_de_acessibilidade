@@ -23,7 +23,7 @@ function formulario() {
     function pegarCamposDoFromulario(formulario) {
         const camposDoFormulario = formulario.querySelectorAll(elementos.camposDoFormulario);
         camposDoFormulario.forEach(campo => {
-            campo.addEventListener('blur', () => validaCampo(campo));
+            campo.addEventListener('blur', (evento) => validaCampo(campo, evento));
         });
     }
 
@@ -34,7 +34,7 @@ function formulario() {
         }, true);
     }
 
-    function validaCampo(campo) {
+    function validaCampo(campo, evento) {
         let mensagemDeErroCustomizada = '';
         campo.setCustomValidity('');
 
@@ -98,11 +98,11 @@ function formulario() {
 
         console.log(dadosDoFormulario);
 
-        salvarDadosDoUsuario(formulario, dadosDoFormulario);
+        salvarDadosDoUsuario(dadosDoFormulario);
     }
 
 
-    function salvarDadosDoUsuario(formulario, dadosDoFormulario) {
+    function salvarDadosDoUsuario(dadosDoFormulario) {
         const dadosDeUsuarios = JSON.parse(localStorage.getItem(`${formulario.dataset.tipoFormulario}`) || []);
 
         dadosDeUsuarios.push(dadosDoFormulario);

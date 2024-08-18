@@ -23,7 +23,7 @@ function formulario() {
     function pegarCamposDoFromulario(formulario) {
         const camposDoFormulario = formulario.querySelectorAll(elementos.camposDoFormulario);
         camposDoFormulario.forEach(campo => {
-            campo.addEventListener('blur', () => validaCampo(campo));
+            campo.addEventListener('blur', (evento) => validaCampo(campo, evento));
         });
     }
 
@@ -34,7 +34,7 @@ function formulario() {
         }, true);
     }
 
-    function validaCampo(campo) {
+    function validaCampo(campo, evento) {
         let mensagemDeErroCustomizada = '';
         campo.setCustomValidity('');
 

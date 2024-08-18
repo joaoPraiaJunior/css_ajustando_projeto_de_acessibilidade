@@ -23,7 +23,7 @@ function formulario() {
     function pegarCamposDoFromulario(formulario) {
         const camposDoFormulario = formulario.querySelectorAll(elementos.camposDoFormulario);
         camposDoFormulario.forEach(campo => {
-            campo.addEventListener('blur', () => validaCampo(campo));
+            campo.addEventListener('blur', (evento) => validaCampo(campo, evento));
         });
     }
 
@@ -34,7 +34,7 @@ function formulario() {
         }, true);
     }
 
-    function validaCampo(campo) {
+    function validaCampo(campo, evento) {
         let mensagemDeErroCustomizada = '';
         campo.setCustomValidity('');
 
@@ -90,6 +90,7 @@ function formulario() {
 
     function pegarDadosDoFormulario(formulario) {
         const camposDoFormulario = formulario.querySelectorAll(elementos.camposDoFormulario);
+        const dadosDeUsuarios = JSON.parse(localStorage.getItem(`${formulario.dataset.tipoFormulario}`) || [] );
         const dadosDoFormulario = new Object();
 
         camposDoFormulario.forEach(campo => {
@@ -97,13 +98,6 @@ function formulario() {
         });
 
         console.log(dadosDoFormulario);
-
-        salvarDadosDoUsuario(formulario, dadosDoFormulario);
-    }
-
-
-    function salvarDadosDoUsuario(formulario, dadosDoFormulario) {
-        const dadosDeUsuarios = JSON.parse(localStorage.getItem(`${formulario.dataset.tipoFormulario}`) || []);
 
         dadosDeUsuarios.push(dadosDoFormulario);
 
@@ -138,7 +132,7 @@ function formulario() {
     }
 
     function animacaoDaMensagemDeErroSucesso(mensagemErroSucesso) {
-        intervaloDaAnimacaoMensagem = setTimeout(() => {
+    intervaloDaAnimacaoMensagem = setTimeout(() => {
             mensagemErroSucesso.textContent = '';
             mensagemErroSucesso.setAttribute('aria-hidden', 'true');
             mensagemErroSucesso.removeAttribute('role');
@@ -148,7 +142,7 @@ function formulario() {
     }
 
     function resetarParaReiniciarAnimacao() {
-        if (intervaloDaAnimacaoMensagem) {
+        if(intervaloDaAnimacaoMensagem) {
             clearTimeout(intervaloDaAnimacaoMensagem);
             intervaloDaAnimacaoMensagem = null;
         }

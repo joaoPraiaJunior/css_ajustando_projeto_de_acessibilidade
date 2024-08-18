@@ -23,7 +23,7 @@ function formulario() {
     function pegarCamposDoFromulario(formulario) {
         const camposDoFormulario = formulario.querySelectorAll(elementos.camposDoFormulario);
         camposDoFormulario.forEach(campo => {
-            campo.addEventListener('blur', () => validaCampo(campo));
+            campo.addEventListener('blur', (evento) => validaCampo(campo, evento));
         });
     }
 
@@ -34,10 +34,10 @@ function formulario() {
         }, true);
     }
 
-    function validaCampo(campo) {
+    function validaCampo(campo, evento) {
         let mensagemDeErroCustomizada = '';
         campo.setCustomValidity('');
-
+        
         for (const erro of tiposDeErro) {
             if (campo.validity[erro]) {
                 mensagemDeErroCustomizada = mensagensDeErro[campo.name][erro];
@@ -45,13 +45,15 @@ function formulario() {
             }
         }
 
-        atualizarMensagemDeErro(campo, mensagemDeErroCustomizada, campo.validity.valid);
-    }
+        const validadorDeInput = campo.validity.valid;
+        let campoAlvo = evento.target;
 
-    function atualizarMensagemDeErro(campo, mensagemDeErroCustomizada, validadorDeInput) {
+        while (campoAlvo.dataset.js !== 'container-campo') {
+            campoAlvo = campoAlvo.parentElement;
+        }
 
-        const campoAlvo = encontrarElementoMensagemDeErro(campo);
         const elementoMensagemDeErro = campoAlvo.querySelector(elementos.elementoMensagemDeErro);
+
 
         if (!validadorDeInput) {
             elementoMensagemDeErro.textContent = mensagemDeErroCustomizada;
@@ -67,16 +69,6 @@ function formulario() {
         }
     }
 
-    function encontrarElementoMensagemDeErro(campo) {
-        let campoAlvo = campo;
-
-        while (campoAlvo.dataset.js !== 'container-campo') {
-            campoAlvo = campoAlvo.parentElement;
-        }
-
-        return campoAlvo;
-    }
-
     function enviarFormulario(formulario) {
         formulario.addEventListener('submit', (evento) => {
             evento.preventDefault();
@@ -90,6 +82,7 @@ function formulario() {
 
     function pegarDadosDoFormulario(formulario) {
         const camposDoFormulario = formulario.querySelectorAll(elementos.camposDoFormulario);
+        const dadosDeUsuarios = JSON.parse(localStorage.getItem(`${formulario.dataset.tipoFormulario}`)) || [];
         const dadosDoFormulario = new Object();
 
         camposDoFormulario.forEach(campo => {
@@ -97,13 +90,6 @@ function formulario() {
         });
 
         console.log(dadosDoFormulario);
-
-        salvarDadosDoUsuario(formulario, dadosDoFormulario);
-    }
-
-
-    function salvarDadosDoUsuario(formulario, dadosDoFormulario) {
-        const dadosDeUsuarios = JSON.parse(localStorage.getItem(`${formulario.dataset.tipoFormulario}`) || []);
 
         dadosDeUsuarios.push(dadosDoFormulario);
 
@@ -138,7 +124,7 @@ function formulario() {
     }
 
     function animacaoDaMensagemDeErroSucesso(mensagemErroSucesso) {
-        intervaloDaAnimacaoMensagem = setTimeout(() => {
+    intervaloDaAnimacaoMensagem = setTimeout(() => {
             mensagemErroSucesso.textContent = '';
             mensagemErroSucesso.setAttribute('aria-hidden', 'true');
             mensagemErroSucesso.removeAttribute('role');
@@ -148,7 +134,7 @@ function formulario() {
     }
 
     function resetarParaReiniciarAnimacao() {
-        if (intervaloDaAnimacaoMensagem) {
+        if(intervaloDaAnimacaoMensagem) {
             clearTimeout(intervaloDaAnimacaoMensagem);
             intervaloDaAnimacaoMensagem = null;
         }
