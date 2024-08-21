@@ -70,7 +70,7 @@ function formulario() {
     function encontrarElementoMensagemDeErro(campo) {
         let campoAlvo = campo;
 
-        while (campoAlvo && campoAlvo.dataset.js !== 'container-campo') {
+        while (campoAlvo.dataset.js !== 'container-campo') {
             campoAlvo = campoAlvo.parentElement;
         }
 
@@ -103,7 +103,7 @@ function formulario() {
 
 
     function salvarDadosDoUsuario(formulario, dadosDoFormulario) {
-        const dadosDeUsuarios = JSON.parse(localStorage.getItem(`${formulario.dataset.tipoFormulario}`)) || [];
+        const dadosDeUsuarios = JSON.parse(localStorage.getItem(`${formulario.dataset.tipoFormulario}`) || []);
 
         dadosDeUsuarios.push(dadosDoFormulario);
 

@@ -70,7 +70,7 @@ function formulario() {
     function encontrarElementoMensagemDeErro(campo) {
         let campoAlvo = campo;
 
-        while (campoAlvo && campoAlvo.dataset.js !== 'container-campo') {
+        while (campoAlvo.dataset.js !== 'container-campo') {
             campoAlvo = campoAlvo.parentElement;
         }
 
