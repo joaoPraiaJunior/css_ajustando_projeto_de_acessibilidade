@@ -69,11 +69,11 @@ function modal() {
         document.body.style.overflow = 'auto';
         ultimoBotaoAtivo.focus();
         if (formularioModal) {
-            limparFormularioModal(formularioModal);
+            limparFormuLarioModal(formularioModal);
         }
     }
 
-    function limparFormularioModal(formularioModal) {
+    function limparFormuLarioModal(formularioModal) {
         const mensagensDeErro = formularioModal.querySelectorAll(elementos.mensagemDeErro);
         const mensagemErroSucesso = formularioModal.querySelector(elementos.mensagemErroSucesso);
         mensagemErroSucesso.textContent = '';
