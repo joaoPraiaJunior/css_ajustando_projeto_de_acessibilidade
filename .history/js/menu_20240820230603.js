@@ -10,6 +10,7 @@ function menu() {
     const itensDeMenu = document.querySelectorAll(elementos.itensDeMenu);
 
     itensDeMenu.forEach(item => {
+
         item.addEventListener('mouseover', () => alternaSubmenu(item, true));
         item.addEventListener('mouseout', () => alternaSubmenu(item, false));
 
